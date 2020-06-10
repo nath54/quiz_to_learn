@@ -9,13 +9,16 @@
         <div class="container">
             <!--MENU-->
             <div class="hautdelapage">
-
+                <a href="index.html">Retourner au menu</a>
+                <h1 id="nom">Quiz</h1>
+                <p id="description"></p>
             </div>
             <!--LISTE DES QUIZS-->
             <div class="quiz">
-                <p id="score">0/0</p>
-                <h1 id="question">Question</h1>
-                <input type="text" id="input" placeholder="réponse"/>
+                <p id="score">Score : 0/0 - 0%</p>
+                <p>Inverser les questions et les réponses : <input type="checkbox" id="inverser" /> (ne s'applique qu'à partir de la prochaine question)</p>
+                <h1 id="question">Raffraichissez la page si vous voyez ce message</h1>
+                <input type="text" id="input" placeholder="réponse" onkeypress="checkEnter(event);"/>
                 <button onclick="repondre();" id="button" >Répondre</button>
                 <h2 id="affreponse"></h2>
             </div>

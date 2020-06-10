@@ -1,3 +1,7 @@
+
+var nom="Quiz sur les verbes particules anglais-francais";
+var description="";
+
 var quiz=[
     ["Bring up","évoquer"],
     ["Bring it on!","Vas-y!"],
@@ -42,8 +46,8 @@ var quiz=[
     ["Put on","Mettre"],
     ["Take off","Enlever"],
     ["Take out","Sortir quelqu’un"],
-    ["Turn on","Allumer, ouvrir"],
-    ["Turn off","Fermer, éteindre"],
+    ["Turn on","ouvrir"],
+    ["Turn off","Fermer"],
     ["Turn around","se retourner"],
     ["Turn up","venir"],
     ["Work out","Faire du sport"],
