@@ -7,6 +7,47 @@ function randomchoice(liste){
     return liste[ parseInt( Math.random() * liste.length ) ];
 }
 
+function traitre_txt(txt){
+    ntxt=txt
+    ntxt=txt.toLowerCase();
+    replacements={
+        "é":"e",
+        "è":"e",
+        "ê":"e",
+        "ë":"e",
+        "â":"a",
+        "ä":"a",
+        "à":"a",
+        "ç":"c",
+        "ù":"u",
+        "û":"u",
+        "ü":"u",
+        "î":"i",
+        "ï":"i",
+        "ö":"o",
+        "ô":"o",
+        " ":"",
+        "\t":"",
+        "\r":"",
+        "\n":"",
+        "!":"",
+        ",":"",
+        "?":"",
+        ";":"",
+        ".":"",
+        ":":"",
+        "/":"",
+        "§":"",
+        "%":"",
+        "*":""
+    }
+    for(k of Object.keys(replacements)){
+        while(ntxt.includes(k)){ ntxt=ntxt.replace(k,replacements[k]); }
+    }
+
+    return ntxt
+}
+
 function aff_evo_reps(){
     if( ! document.getElementById("canvas") ){
         can=document.createElement("canvas");
@@ -40,9 +81,9 @@ function createQuestion(){
 
 function repondre(){
     if(window.etape==1){
-        rep=document.getElementById("input").value;
+        rep=traitre_txt(document.getElementById("input").value);
         window.arepondu=rep;
-        vrep=window.reponse;
+        vrep=traitre_txt(window.reponse);
         window.nbqs+=1;
         if(rep==vrep){
             document.getElementById("affreponse").innerHTML="Bonne réponse !";
