@@ -16,7 +16,7 @@ var quiz=[
 
     ["Drop by","passer à l'improviste"],
     ["Drop off","Déposer"],
-    ["Fall apart","s'effrondrer"],
+    ["Fall apart","s'effondrer"],
     ["Fall down","tomber"],
     ["Fall behind","Prendre du retard"],
     ["Fill in","Compléter"],
