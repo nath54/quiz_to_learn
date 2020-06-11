@@ -66,7 +66,8 @@ function traitre_txt(txt){
         "°":"",
         "€":"",
         "£":"",
-        "µ":""
+        "µ":"",
+        "’":""
     }
     for(k of Object.keys(replacements)){
         while(ntxt.includes(k)){ ntxt=ntxt.replace(k,replacements[k]); }

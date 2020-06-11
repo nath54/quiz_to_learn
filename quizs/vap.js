@@ -13,16 +13,18 @@ var quiz=[
     ["Come across","rencontrer par hasard"],
     ["Cut off","Couper les liens"],
     ["Cut in","interrompre"],
-    ["Drop by/dropt in","passer à l’improviste"],
+
+    ["Drop by","passer à l'improviste"],
     ["Drop off","Déposer"],
-    ["Fall apart","s’effrondrer"],
+    ["Fall apart","s'effrondrer"],
     ["Fall down","tomber"],
     ["Fall behind","Prendre du retard"],
     ["Fill in","Compléter"],
     ["Fill up","Remplir"],
-    ["Get away","S’enfuir"],
+    ["Get away","S'enfuir"],
     ["Get around","se déplacer"],
     ["Get along","se débrouiller"],
+
     ["Get up","Se lever"],
     ["Get back to","Reprendre"],
     ["Get back at","Se venger"],
@@ -33,6 +35,7 @@ var quiz=[
     ["Go ahead","Y aller"],
     ["Grow up","Grandir"],
     ["Grow apart","Se perdre de vue"],
+
     ["Hang on","rester"],
     ["Hang out","Traîner"],
     ["Hang up","Raccrocher"],
@@ -43,14 +46,14 @@ var quiz=[
     ["Pay back","Rembourser"],
     ["Pay for","Payer pour"],
     ["Put out","Éteindre"],
+
     ["Put on","Mettre"],
     ["Take off","Enlever"],
-    ["Take out","Sortir quelqu’un"],
+    ["Take out","Sortir quelqu'un"],
     ["Turn on","ouvrir"],
     ["Turn off","Fermer"],
     ["Turn around","se retourner"],
     ["Turn up","venir"],
     ["Work out","Faire du sport"],
 ];
-
 //0=question 1=réponse
