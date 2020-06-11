@@ -183,8 +183,19 @@ function createQuestion(){
     document.getElementById("input").value="";
     question=randomchoice(quiz);
     if(document.getElementById("inverser").checked){
-        window.reponse=question[0];
-        window.question=question[1];
+        if(document.getElementById("randominvers").checked){
+            if(randomchoice(["inversé","pas inversé"])=="inversé"){
+                window.reponse=question[0];
+                window.question=question[1];
+            }else{
+                window.reponse=question[1];
+                window.question=question[0];
+            }
+        }
+        else{
+            window.reponse=question[0];
+            window.question=question[1];
+        }        
     }
     else{
         window.reponse=question[1];
