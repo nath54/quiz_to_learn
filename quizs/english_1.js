@@ -3,7 +3,7 @@ var nom="TF, english 1, boxes p197";
 var description="";
 
 var quiz=[
-    ["Assession","Estimation"],
+    ["Assessment","Estimation"],
     ["Ability","Capacité"],
     ["Mixed child","Enfant métis"],
     ["Assumption","Supposition"],
