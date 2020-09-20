@@ -35,7 +35,7 @@ var quiz=[
     ["Trayecto","Trajet"],
     ["Peligroso","Dangereux"],
     ["Viaje","Voyage"],
-    ["Ayudar","Aide"],
+    ["Ayudar","Aider"],
     ["Echar","Jeter"],
     ["Lanzar","Lancer"],
     ["Albergue","Auberge"],
