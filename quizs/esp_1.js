@@ -12,7 +12,7 @@ var quiz=[
     ["Varias","Plusieurs"],
     ["Correr","Courir"],
     ["Detrás","Derrière"],
-    ["Película","Le film"],
+    ["Película","Film"],
     ["Un tren","Un train"],
     ["A toda velocidad","À toute vitesse"],
     ["Dar","Donner"],
