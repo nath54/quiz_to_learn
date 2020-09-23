@@ -3,6 +3,7 @@ window.nbqs=0;
 window.brps=0;
 window.reponses=[];
 window.pourcentages=[];
+window.qratees=[];
 
 document.getElementById("nom").innerHTML=nom;
 document.getElementById("description").innerHTML=description;
@@ -186,7 +187,20 @@ function aff_evo_reps(){
 function createQuestion(){
     document.getElementById("affreponse").innerHTML="";
     document.getElementById("input").value="";
+    var qa=[];
+    for(i=0; i<quiz.length; i++){
+        if(!qratees.includes(i)){
+            qa.push(quiz[i])
+        }
+        else{
+            for(x=0; x<10; x++){
+                qa.push(quiz[i])
+            }
+        }
+        
+    }
     question=randomchoice(quiz);
+    window.questione=question;
     if(document.getElementById("inverser").checked){
         if(document.getElementById("randominvers").checked){
             if(randomchoice(["inversé","pas inversé"])=="inversé"){
@@ -229,11 +243,19 @@ function repondre(){
             document.getElementById("affreponse").style.color="orange";
             window.reponses.push(0.5);
             window.brps+=0.5;
+            var iqi=quiz.indexOf([window.questione]);
+            if(!window.qratees.includes(iqi)){
+                window.qratees.push(iqi);
+            }
         }
         else{
             document.getElementById("affreponse").innerHTML="mauvaise réponse, la bonne réponse était : '"+window.reponse+"'";
             document.getElementById("affreponse").style.color="red";
             window.reponses.push(0);
+            var iqi=quiz.indexOf([window.questione]);
+            if(!window.qratees.includes(iqi)){
+                window.qratees.push(iqi);
+            }
         }
         window.pourcentages.push((window.brps/window.nbqs*100))
         document.getElementById("score").innerHTML="Score : "+window.brps+"/"+window.nbqs+" - "+(window.brps/window.nbqs*100)+"%";
