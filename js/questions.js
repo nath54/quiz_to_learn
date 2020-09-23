@@ -193,13 +193,13 @@ function createQuestion(){
             qa.push(quiz[i])
         }
         else{
-            for(x=0; x<10; x++){
+            for(x=0; x<15; x++){
                 qa.push(quiz[i])
             }
         }
         
     }
-    question=randomchoice(quiz);
+    question=randomchoice(qa);
     window.questione=question;
     if(document.getElementById("inverser").checked){
         if(document.getElementById("randominvers").checked){

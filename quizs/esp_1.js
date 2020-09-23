@@ -82,7 +82,7 @@ var quiz=[
     ["Peor","Pire"],
     ["Escapar","Échapper"],
     ["Pobreza","Pauvreté"],
-    ["Discrimination","Discriminación"],
+    ["Discriminación","Discrimination"],
     ["Un río","Un fleuve"],
     ["Alejarse","S'éloigner"],
     ["Acercarse","Se rapprocher"],
