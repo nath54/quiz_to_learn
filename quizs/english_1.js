@@ -2,6 +2,8 @@
 var nom="TF, english 1, boxes p197";
 var description="";
 
+var sens=["agl","fr"]
+
 var quiz=[
     ["Assessment","Estimation"],
     ["Ability","Capacité"],

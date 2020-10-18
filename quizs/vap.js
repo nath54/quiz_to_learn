@@ -2,6 +2,8 @@
 var nom="Quiz sur les verbes particules anglais-francais";
 var description="";
 
+var sens=["agl","fr"]
+
 var quiz=[
     ["Bring up","évoquer"],
     ["Bring it on!","Vas-y!"],

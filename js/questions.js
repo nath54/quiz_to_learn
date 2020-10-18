@@ -104,11 +104,11 @@ function aff_evo_reps(){
     var y1=30;
 
     //quadrillage
-    
+
     ctx.lineWidth = 2
     ctx.strokeStyle = 'black';
     ctx.beginPath();
-    ctx.moveTo(x0,y0);    
+    ctx.moveTo(x0,y0);
     ctx.lineTo(x0,y1);
     ctx.stroke();
     ctx.closePath();
@@ -138,7 +138,7 @@ function aff_evo_reps(){
     else{ ctx.fillStyle="red"; }
     ctx.fillRect(x0-tc/2,y0-window.pourcentages[0]-tc/2,tc,tc);
     //pourcentages
-    for(x=1; x<window.nbqs; x++){        
+    for(x=1; x<window.nbqs; x++){
         if(window.pourcentages[x]>window.pourcentages[x-1]){
             ctx.strokeStyle = 'green';
             ctx.fillStyle = "green";
@@ -168,20 +168,7 @@ function aff_evo_reps(){
         ctx.lineTo(x0+(x1-x0)/(window.pourcentages.length-1)*x,y0-window.pourcentages[x]);
         ctx.stroke();
         ctx.closePath();
-        /*
-        ctx.strokeStyle="grey";
-        ctx.lineWidth=1;
-        ctx.beginPath();
-        ctx.moveTo(x0+(x1-x0)/(window.pourcentages.length-1)*x,y0);
-        ctx.lineTo(x0+(x1-x0)/(window.pourcentages.length-1)*x,y1);
-        ctx.stroke();
-        ctx.closePath();
-        */
     }
-
-    
-    
-
 }
 
 function createQuestion(){
@@ -197,30 +184,46 @@ function createQuestion(){
                 qa.push(quiz[i])
             }
         }
-        
     }
     question=randomchoice(qa);
     window.questione=question;
+    window.sense=0;
     if(document.getElementById("inverser").checked){
         if(document.getElementById("randominvers").checked){
             if(randomchoice(["inversé","pas inversé"])=="inversé"){
                 window.reponse=question[0];
                 window.question=question[1];
+                window.sense=1;
             }else{
                 window.reponse=question[1];
                 window.question=question[0];
+                window.sense=0;
             }
         }
         else{
             window.reponse=question[0];
             window.question=question[1];
-        }        
+            window.sense=1;
+        }
     }
     else{
         window.reponse=question[1];
         window.question=question[0];
+        window.sense=0;
     }
-    document.getElementById("question").innerHTML="Traduction de : "+window.question;
+    if(typeof window.question === 'string'){
+        var txts="";
+        if(window.sense==0){
+            txts=" ( "+sens[0]+" -> "+sens[1]+" )";
+        }else if(window.sense==1){
+            txts=" ( "+sens[1]+" -> "+sens[0]+" )";
+        }
+        document.getElementById("question").innerHTML="Traduction de : "+window.question+txts;
+    }
+    else{
+        txt="Traduction de : "+window.question.join(" / ");
+        document.getElementById("question").innerHTML=txt;
+    }
     document.getElementById("button").innerHTML="répondre";
 
     window.etape=1;
@@ -230,26 +233,39 @@ function repondre(){
     if(window.etape==1){
         rep=traitre_txt(document.getElementById("input").value);
         window.arepondu=rep;
-        vrep=traitre_txt(window.reponse);
+        vreps=[]
+        if(typeof window.reponse === 'string'){
+            vreps.push(traitre_txt(window.reponse));
+        }
+        else{
+            for(rr of window.reponse){
+                vreps.push(traitre_txt(rr));
+            }
+        }
         window.nbqs+=1;
-        if(rep==vrep){
-            document.getElementById("affreponse").innerHTML="Bonne réponse !";
+        if(vreps.includes(rep)){
+            var txte="";
+            if(!(typeof window.reponse == "string")){
+                txte+="( il y avait aussi : "
+                for(rr of window.reponse){
+                    if(traitre_txt(rr)!=rep){
+                        txte+=" '"+rr+"' ";
+                    }
+                }
+                txte+=" )"
+            }
+            document.getElementById("affreponse").innerHTML="Bonne réponse ! "+txte;
             document.getElementById("affreponse").style.color="green";
             window.reponses.push(1);
             window.brps+=1;
         }
-        else if(vrep.includes(rep) && Math.abs(vrep.length-rep.length) < 3 ){
-            document.getElementById("affreponse").innerHTML="Votre réponse est dans la bonne réponse, la bonne réponse était : '"+window.reponse+"'";
-            document.getElementById("affreponse").style.color="orange";
-            window.reponses.push(0.5);
-            window.brps+=0.5;
-            var iqi=quiz.indexOf([window.questione]);
-            if(!window.qratees.includes(iqi)){
-                window.qratees.push(iqi);
-            }
-        }
         else{
-            document.getElementById("affreponse").innerHTML="mauvaise réponse, la bonne réponse était : '"+window.reponse+"'";
+            if(typeof window.reponse === 'string'){
+                document.getElementById("affreponse").innerHTML="mauvaise réponse, la bonne réponse était : '"+window.reponse+"'";
+            }
+            else{
+                document.getElementById("affreponse").innerHTML="mauvaise réponse, la bonne réponse était : '"+window.reponse.join("' / '")+"'";
+            }
             document.getElementById("affreponse").style.color="red";
             window.reponses.push(0);
             var iqi=quiz.indexOf([window.questione]);
@@ -266,7 +282,6 @@ function repondre(){
     else if(window.etape==0){
         createQuestion();
     }
-    
 }
 createQuestion();
 

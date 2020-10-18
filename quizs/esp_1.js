@@ -2,6 +2,8 @@
 var nom="Espagnol chap 1";
 var description="";
 
+var sens=["esp","fr"]
+
 //í á ñ À
 
 var quiz=[
