@@ -49,7 +49,7 @@ var quiz=[
     ["levantarse","se lever"],
     ["abrir","ouvrir"],
     ["cerrar","fermer"],
-    ["guardar",["guarder","ranger"]],
+    ["guardar",["garder","ranger"]],
     ["olvidar","oublier"],
     ["recordar",["rappeler","se rappeler"]],
     ["acordarse de","se souvenir de"],
